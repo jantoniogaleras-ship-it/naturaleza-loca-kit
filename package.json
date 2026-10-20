@@ -19,7 +19,7 @@
     "@remotion/renderer": "4.0.537",
     "@remotion/vercel": "4.0.537",
     "@vercel/blob": "2.8.2",
-    "@vercel/sandbox": "3.8.0",
+    "@vercel/sandbox": "1.6.0",
     "next": "16.4.2",
     "react": "19.3.1",
     "react-dom": "19.3.1",
