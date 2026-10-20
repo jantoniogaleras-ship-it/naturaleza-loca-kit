@@ -43,18 +43,11 @@ export type ShortProps = {
   destacadas?: string[];
 };
 
-export const DURACION_LIKE = 1.8;
+// El inserto de like dura 1,8 s; se pone a 0,75x para que dé tiempo a verlo.
+export const DURACION_LIKE_ORIGINAL = 1.8;
+export const DURACION_LIKE = 2.4;
 export const FPS = 30;
 export const ANCHO = 1080;
 export const ALTO = 1920;
 
 export const finDeOverlay = (o: Overlay) => (o.tipo === "like" ? o.inicio + DURACION_LIKE : o.fin);
-
-export const duracionTotal = (p: ShortProps) => {
-  const ultimos = [
-    ...p.voz.palabras.map((w) => w.fin),
-    ...p.planos.map((s) => s.fin),
-    ...p.overlays.map(finDeOverlay),
-  ];
-  return Math.max(1, ...ultimos);
-};
