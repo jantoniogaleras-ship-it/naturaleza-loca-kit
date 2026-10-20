@@ -6,6 +6,7 @@ Motor de render de los Shorts de Naturaleza Loca: plantillas animadas en [Remoti
 
 1. n8n genera los datos de un Short (guion, tiempos de cada palabra, planos y animaciones) con la forma de `remotion/schema.ts`.
 2. n8n llama a `POST /api/render` con esos datos y la cabecera `Authorization: Bearer <RENDER_SECRET>`. Responde `{ sandboxId, cmdId }`.
+   Antes, n8n sube el MP3 de la voz con `POST /api/audio?nombre=<ID>` (cuerpo: el MP3, misma cabecera) y usa la `url` que devuelve como `voz.src`.
 3. n8n consulta `GET /api/progress?sandboxId=…&cmdId=…` cada 15–20 s hasta recibir `{ stage: "done", url }`. La URL es el MP4 en Vercel Blob, listo para subir a YouTube.
 
 ## Plantilla (unos 22 s)
