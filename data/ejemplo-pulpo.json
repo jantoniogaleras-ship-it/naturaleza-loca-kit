@@ -1,0 +1,373 @@
+{
+  "animal": "pulpo",
+  "palabraReto": "pulpo",
+  "voz": {
+    "src": null,
+    "palabras": [
+      {
+        "texto": "¿Sabías",
+        "inicio": 0.1,
+        "fin": 0.415
+      },
+      {
+        "texto": "que",
+        "inicio": 0.442,
+        "fin": 0.617
+      },
+      {
+        "texto": "el",
+        "inicio": 0.632,
+        "fin": 0.772
+      },
+      {
+        "texto": "pulpo",
+        "inicio": 0.784,
+        "fin": 1.029
+      },
+      {
+        "texto": "tiene",
+        "inicio": 1.05,
+        "fin": 1.295
+      },
+      {
+        "texto": "tres",
+        "inicio": 1.316,
+        "fin": 1.526
+      },
+      {
+        "texto": "corazones?",
+        "inicio": 1.544,
+        "fin": 1.964
+      },
+      {
+        "texto": "El",
+        "inicio": 2.1,
+        "fin": 2.284
+      },
+      {
+        "texto": "pulpo",
+        "inicio": 2.3,
+        "fin": 2.622
+      },
+      {
+        "texto": "tiene",
+        "inicio": 2.65,
+        "fin": 2.972
+      },
+      {
+        "texto": "nueve",
+        "inicio": 3.0,
+        "fin": 3.322
+      },
+      {
+        "texto": "cerebros:",
+        "inicio": 3.35,
+        "fin": 3.856
+      },
+      {
+        "texto": "uno",
+        "inicio": 3.9,
+        "fin": 4.13
+      },
+      {
+        "texto": "central",
+        "inicio": 4.15,
+        "fin": 4.564
+      },
+      {
+        "texto": "y",
+        "inicio": 4.6,
+        "fin": 4.738
+      },
+      {
+        "texto": "uno",
+        "inicio": 4.75,
+        "fin": 4.98
+      },
+      {
+        "texto": "en",
+        "inicio": 5.0,
+        "fin": 5.184
+      },
+      {
+        "texto": "cada",
+        "inicio": 5.2,
+        "fin": 5.476
+      },
+      {
+        "texto": "brazo.",
+        "inicio": 5.5,
+        "fin": 5.868
+      },
+      {
+        "texto": "Pero",
+        "inicio": 8.0,
+        "fin": 8.334
+      },
+      {
+        "texto": "lo",
+        "inicio": 8.363,
+        "fin": 8.585
+      },
+      {
+        "texto": "más",
+        "inicio": 8.604,
+        "fin": 8.882
+      },
+      {
+        "texto": "loco",
+        "inicio": 8.906,
+        "fin": 9.24
+      },
+      {
+        "texto": "es",
+        "inicio": 9.269,
+        "fin": 9.491
+      },
+      {
+        "texto": "esto:",
+        "inicio": 9.51,
+        "fin": 9.9
+      },
+      {
+        "texto": "la",
+        "inicio": 9.933,
+        "fin": 10.156
+      },
+      {
+        "texto": "sangre",
+        "inicio": 10.175,
+        "fin": 10.62
+      },
+      {
+        "texto": "del",
+        "inicio": 10.658,
+        "fin": 10.936
+      },
+      {
+        "texto": "pulpo",
+        "inicio": 10.96,
+        "fin": 11.35
+      },
+      {
+        "texto": "es",
+        "inicio": 11.383,
+        "fin": 11.606
+      },
+      {
+        "texto": "azul,",
+        "inicio": 11.625,
+        "fin": 12.014
+      },
+      {
+        "texto": "por",
+        "inicio": 12.048,
+        "fin": 12.326
+      },
+      {
+        "texto": "el",
+        "inicio": 12.35,
+        "fin": 12.572
+      },
+      {
+        "texto": "cobre",
+        "inicio": 12.592,
+        "fin": 12.981
+      },
+      {
+        "texto": "que",
+        "inicio": 13.015,
+        "fin": 13.293
+      },
+      {
+        "texto": "lleva.",
+        "inicio": 13.317,
+        "fin": 13.761
+      },
+      {
+        "texto": "Y",
+        "inicio": 14.0,
+        "fin": 14.146
+      },
+      {
+        "texto": "cuando",
+        "inicio": 14.158,
+        "fin": 14.547
+      },
+      {
+        "texto": "un",
+        "inicio": 14.581,
+        "fin": 14.775
+      },
+      {
+        "texto": "pulpo",
+        "inicio": 14.792,
+        "fin": 15.132
+      },
+      {
+        "texto": "nada,",
+        "inicio": 15.161,
+        "fin": 15.501
+      },
+      {
+        "texto": "uno",
+        "inicio": 15.531,
+        "fin": 15.773
+      },
+      {
+        "texto": "de",
+        "inicio": 15.794,
+        "fin": 15.989
+      },
+      {
+        "texto": "sus",
+        "inicio": 16.006,
+        "fin": 16.248
+      },
+      {
+        "texto": "corazones",
+        "inicio": 16.269,
+        "fin": 16.804
+      },
+      {
+        "texto": "deja",
+        "inicio": 16.85,
+        "fin": 17.141
+      },
+      {
+        "texto": "de",
+        "inicio": 17.167,
+        "fin": 17.361
+      },
+      {
+        "texto": "latir.",
+        "inicio": 17.378,
+        "fin": 17.766
+      },
+      {
+        "texto": "¿Cuántas",
+        "inicio": 18.0,
+        "fin": 18.475
+      },
+      {
+        "texto": "veces",
+        "inicio": 18.516,
+        "fin": 18.849
+      },
+      {
+        "texto": "dije",
+        "inicio": 18.877,
+        "fin": 19.162
+      },
+      {
+        "texto": "pulpo?",
+        "inicio": 19.187,
+        "fin": 19.567
+      }
+    ]
+  },
+  "musica": null,
+  "planos": [
+    {
+      "src": "ejemplo/plano1.mp4",
+      "tipo": "video",
+      "inicio": 0,
+      "fin": 1.9,
+      "desdeSegundo": 0.0
+    },
+    {
+      "src": "ejemplo/plano2.mp4",
+      "tipo": "video",
+      "inicio": 1.9,
+      "fin": 3.7,
+      "desdeSegundo": 0.7
+    },
+    {
+      "src": "ejemplo/plano3.mp4",
+      "tipo": "video",
+      "inicio": 3.7,
+      "fin": 6.0,
+      "desdeSegundo": 1.4
+    },
+    {
+      "src": "ejemplo/plano3.mp4",
+      "tipo": "video",
+      "inicio": 7.8,
+      "fin": 9.7,
+      "desdeSegundo": 2.1
+    },
+    {
+      "src": "ejemplo/plano4.mp4",
+      "tipo": "video",
+      "inicio": 9.7,
+      "fin": 11.6,
+      "desdeSegundo": 0.3
+    },
+    {
+      "src": "ejemplo/plano4.mp4",
+      "tipo": "video",
+      "inicio": 11.6,
+      "fin": 13.9,
+      "desdeSegundo": 1.0
+    },
+    {
+      "src": "ejemplo/plano5.mp4",
+      "tipo": "video",
+      "inicio": 13.9,
+      "fin": 15.8,
+      "desdeSegundo": 1.7
+    },
+    {
+      "src": "ejemplo/plano6.mp4",
+      "tipo": "video",
+      "inicio": 15.8,
+      "fin": 18.0,
+      "desdeSegundo": 2.4
+    },
+    {
+      "src": "ejemplo/plano1.mp4",
+      "tipo": "video",
+      "inicio": 18.0,
+      "fin": 22.0,
+      "desdeSegundo": 0.6
+    }
+  ],
+  "overlays": [
+    {
+      "tipo": "flecha",
+      "inicio": 0.0,
+      "fin": 2.0,
+      "x": 72,
+      "y": 40,
+      "rotacion": -20
+    },
+    {
+      "tipo": "contador",
+      "inicio": 2.3,
+      "fin": 5.9,
+      "valor": 9,
+      "etiqueta": "cerebros"
+    },
+    {
+      "tipo": "like",
+      "inicio": 6.0
+    },
+    {
+      "tipo": "etiqueta",
+      "inicio": 10.6,
+      "fin": 13.8,
+      "texto": "Sangre azul",
+      "color": "#1E6BFF"
+    },
+    {
+      "tipo": "reto",
+      "inicio": 18.0,
+      "fin": 22.0
+    }
+  ],
+  "destacadas": [
+    "corazones",
+    "azul",
+    "cerebros"
+  ]
+}
