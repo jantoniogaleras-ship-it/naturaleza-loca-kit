@@ -22,6 +22,8 @@ export async function POST(req: Request) {
   if (!blobToken) return NextResponse.json({ error: "Falta BLOB_READ_WRITE_TOKEN" }, { status: 500 });
 
   const sandbox = await createSandbox();
+  // addBundleToSandbox crea las subcarpetas pero no la carpeta raíz del bundle.
+  await sandbox.mkDir("remotion-bundle");
   await addBundleToSandbox({ sandbox, bundleDir: BUNDLE_DIR });
 
   const nombre = String(props.animal ?? "short")
