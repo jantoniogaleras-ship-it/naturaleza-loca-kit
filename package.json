@@ -1,0 +1,35 @@
+{
+  "name": "naturaleza-loca-kit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "studio": "remotion studio remotion/index.ts",
+    "bundle": "remotion bundle remotion/index.ts --out-dir build/remotion-bundle",
+    "build": "npm run bundle && next build",
+    "render:ejemplo": "remotion render remotion/index.ts Short out/ejemplo-pulpo.mp4 --props=data/ejemplo-pulpo.json",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/montserrat": "5.3.0",
+    "@remotion/bundler": "4.0.537",
+    "@remotion/cli": "4.0.537",
+    "@remotion/fonts": "4.0.537",
+    "@remotion/media-utils": "4.0.537",
+    "@remotion/renderer": "4.0.537",
+    "@remotion/vercel": "4.0.537",
+    "@vercel/blob": "2.8.2",
+    "@vercel/sandbox": "1.6.0",
+    "next": "16.4.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.537",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "5.9.3"
+  }
+}
