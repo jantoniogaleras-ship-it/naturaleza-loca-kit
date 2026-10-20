@@ -4,10 +4,11 @@ import { Contador } from "./components/Contador";
 import { Etiqueta } from "./components/Etiqueta";
 import { Flecha } from "./components/Flecha";
 import { LikeInsert } from "./components/LikeInsert";
-import { Planos } from "./components/Planos";
+import { Planos, transicionDe } from "./components/Planos";
 import { Reto } from "./components/Reto";
 import { Subtitulos } from "./components/Subtitulos";
 import { resolverSrc } from "./lib";
+import { montar } from "./montaje";
 import { finDeOverlay, type Overlay, type ShortProps } from "./schema";
 
 loadFont({ family: "Montserrat", url: staticFile("fonts/montserrat-latin-800-normal.woff2"), weight: "800" });
@@ -28,17 +29,25 @@ const OverlayVisual = ({ o, props }: { o: Overlay; props: ShortProps }) => {
   }
 };
 
-export const Short = (props: ShortProps) => {
+// Volúmenes según la guía: la voz manda, los efectos por debajo y la música aún más baja.
+const VOLUMEN_EFECTOS = 0.35;
+const VOLUMEN_MUSICA = 0.1;
+
+// Sonido de cada rótulo al aparecer (el like trae el suyo y además lleva un «ding»).
+const sonidoDe = (o: Overlay) => (o.tipo === "like" ? "sfx/ding.wav" : o.tipo === "etiqueta" ? "sfx/golpe.wav" : "sfx/pop.wav");
+
+export const Short = (original: ShortProps) => {
   const { fps } = useVideoConfig();
   const f = (s: number) => Math.round(s * fps);
+  const { props, trozos, duracion } = montar(original);
   const palabras = props.voz.palabras;
 
   // La música baja mientras habla la voz.
   const volumenMusica = (frame: number) => {
     const t = frame / fps;
-    const base = props.musica?.volumen ?? 0.25;
+    const base = props.musica?.volumen ?? VOLUMEN_MUSICA;
     const hablando = palabras.some((w) => t >= w.inicio - 0.15 && t <= w.fin + 0.15);
-    return hablando ? base * 0.35 : base;
+    return hablando ? base * 0.5 : base;
   };
 
   // El like y el reto ocupan toda la pantalla: mientras están, no hay subtítulos.
@@ -54,18 +63,39 @@ export const Short = (props: ShortProps) => {
       {props.overlays.map((o, i) => (
         <Sequence key={i} from={f(o.inicio)} durationInFrames={Math.max(1, f(finDeOverlay(o)) - f(o.inicio))} layout="none">
           <OverlayVisual o={o} props={props} />
-          {o.tipo !== "like" && <Audio src={staticFile("sfx/pop.wav")} volume={0.6} />}
+          <Sequence from={o.tipo === "like" ? f(0.4) : 0} layout="none">
+            <Audio src={staticFile(sonidoDe(o))} volume={VOLUMEN_EFECTOS} />
+          </Sequence>
         </Sequence>
       ))}
 
-      {props.planos.slice(1).map((p, i) => (
-        <Sequence key={`w${i}`} from={Math.max(0, f(p.inicio) - 3)} durationInFrames={f(0.35)} layout="none">
-          <Audio src={staticFile("sfx/whoosh.wav")} volume={0.35} />
-        </Sequence>
-      ))}
+      {/* Whoosh solo en los cortes con transición, no en cada cambio de plano. */}
+      {props.planos.map((p, i) =>
+        transicionDe(i) === "corte" ? null : (
+          <Sequence key={`w${i}`} from={Math.max(0, f(p.inicio) - 4)} durationInFrames={f(0.45)} layout="none">
+            <Audio src={staticFile("sfx/whoosh.wav")} volume={VOLUMEN_EFECTOS * 0.7} />
+          </Sequence>
+        ),
+      )}
 
-      {props.voz.src && <Audio src={resolverSrc(props.voz.src)} volume={props.voz.volumen ?? 1} />}
-      {props.musica && <Audio src={resolverSrc(props.musica.src)} volume={volumenMusica} />}
+      {/* La voz va en trozos, ya sin los silencios largos. */}
+      {props.voz.src &&
+        trozos.map((tr, i) => (
+          <Sequence key={`v${i}`} from={f(tr.inicio)} durationInFrames={Math.max(1, f(tr.srcFin) - f(tr.srcInicio))} layout="none">
+            <Audio
+              src={resolverSrc(props.voz.src as string)}
+              trimBefore={f(tr.srcInicio)}
+              trimAfter={f(tr.srcFin)}
+              volume={props.voz.volumen ?? 1}
+            />
+          </Sequence>
+        ))}
+
+      {props.musica && (
+        <Sequence durationInFrames={f(duracion)} layout="none">
+          <Audio src={resolverSrc(props.musica.src)} volume={volumenMusica} />
+        </Sequence>
+      )}
     </AbsoluteFill>
   );
 };

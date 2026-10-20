@@ -15,12 +15,14 @@ Motor de render de los Shorts de Naturaleza Loca: plantillas animadas en [Remoti
 | --- | --- | --- |
 | 0–2 s | Gancho en forma de pregunta | `Flecha` (overlay `flecha`) |
 | 2–6 s | Primer dato con su número | `Contador` (overlay `contador`) |
-| 6–8 s | Inserto de like | `LikeInsert` (overlay `like`, 1,8 s) |
+| 6–8 s | Inserto de like (la voz se para) | `LikeInsert` (overlay `like`, 2,4 s a 0,75x) |
 | 8–14 s | Giro sorprendente | `Etiqueta` (overlay `etiqueta`) |
 | 14–18 s | Remate | palabra resaltada en `destacadas` |
 | 18–22 s | Reto «¿cuántas veces dije X?» | `Reto` (overlay `reto`) |
 
-Además, en todo el vídeo: subtítulos palabra a palabra con los tiempos de ElevenLabs, zoom y destello en cada corte, whoosh en los cortes, pop al entrar cada animación y música que baja sola mientras habla la voz.
+Además, en todo el vídeo: subtítulos palabra a palabra con los tiempos de ElevenLabs, un movimiento distinto en cada plano (zoom o barrido), transiciones cortas alternas con whoosh en la mitad de los cortes, pop, golpe o ding al entrar cada animación y música que baja sola mientras habla la voz.
+
+`remotion/montaje.ts` monta la línea de tiempo final: quita los silencios largos de la voz (máx. 0,15 s), abre el hueco del like y saca el contador y la etiqueta cuando se dicen su número o su frase.
 
 Los tiempos de cada tramo no están fijos: salen de los datos, así que la plantilla se adapta a lo que dure la voz.
 
@@ -48,5 +50,5 @@ La autenticación con Vercel Sandbox es automática dentro del proyecto desplega
 
 - `assets/`: el kit original (PNG y MP4) que sirvió de referencia.
 - `public/kit/like_insert.mp4`: el inserto de like, reutilizado tal cual.
-- `public/sfx/`: whoosh y pop provisionales, generados; conviene cambiarlos por efectos con licencia libre.
+- `public/sfx/`: whoosh, pop, ding y golpe provisionales, generados; conviene cambiarlos por efectos con licencia libre.
 - `public/ejemplo/`: planos de prueba (degradados con texto) solo para el ejemplo.

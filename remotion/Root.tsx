@@ -1,6 +1,7 @@
 import { Composition } from "remotion";
 import ejemplo from "../data/ejemplo-pulpo.json";
-import { ALTO, ANCHO, FPS, duracionTotal, type ShortProps } from "./schema";
+import { montar } from "./montaje";
+import { ALTO, ANCHO, FPS, type ShortProps } from "./schema";
 import { Short } from "./Short";
 
 export const RemotionRoot = () => (
@@ -13,7 +14,7 @@ export const RemotionRoot = () => (
     durationInFrames={FPS * 22}
     defaultProps={ejemplo as ShortProps}
     calculateMetadata={({ props }) => ({
-      durationInFrames: Math.ceil(duracionTotal(props) * FPS),
+      durationInFrames: Math.ceil(montar(props).duracion * FPS),
     })}
   />
 );
