@@ -5,6 +5,7 @@ import { Etiqueta } from "./components/Etiqueta";
 import { Flecha } from "./components/Flecha";
 import { LikeInsert } from "./components/LikeInsert";
 import { Planos, transicionDe } from "./components/Planos";
+import { Portada } from "./components/Portada";
 import { Reto } from "./components/Reto";
 import { Subtitulos } from "./components/Subtitulos";
 import { resolverSrc } from "./lib";
@@ -54,9 +55,19 @@ export const Short = (original: ShortProps) => {
   const tapan = props.overlays.filter((o) => o.tipo === "like" || o.tipo === "reto");
   const durante = (t: number) => tapan.some((o) => t >= o.inicio && t < finDeOverlay(o));
 
+  // La portada dura lo que la pregunta del gancho (entre 1,5 y 3 s).
+  const pregunta = palabras.find((w) => /\?$/.test(w.texto));
+  const finPortada = Math.min(3, Math.max(1.5, (pregunta?.fin ?? 2) + 0.2));
+
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
       <Planos planos={props.planos} />
+
+      {props.portada && (
+        <Sequence durationInFrames={f(finPortada)} layout="none">
+          <Portada texto={props.portada} duracion={f(finPortada)} />
+        </Sequence>
+      )}
 
       <Subtitulos palabras={palabras} destacadas={props.destacadas ?? []} ocultarEn={durante} />
 
