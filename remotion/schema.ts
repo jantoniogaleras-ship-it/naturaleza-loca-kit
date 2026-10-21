@@ -41,6 +41,8 @@ export type ShortProps = {
   overlays: Overlay[];
   // Palabras que se resaltan en los subtítulos (la palabra clave del dato).
   destacadas?: string[];
+  // Texto grande del gancho al principio; ese fotograma es la portada del Short.
+  portada?: string;
 };
 
 // El inserto de like dura 1,8 s; se pone a 0,75x para que dé tiempo a verlo.
