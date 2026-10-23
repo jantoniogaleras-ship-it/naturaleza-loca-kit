@@ -11,5 +11,6 @@ export const normalizar = (s: string) =>
 
 export const AMARILLO = "#FFE14D";
 export const ROJO = "#E8192C";
+export const VERDE = "#1DB954";
 export const NEGRO = "#111111";
 export const FUENTE = "Montserrat, sans-serif";

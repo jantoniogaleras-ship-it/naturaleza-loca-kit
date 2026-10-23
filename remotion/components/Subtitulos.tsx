@@ -1,5 +1,5 @@
 import { AbsoluteFill, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { AMARILLO, FUENTE, NEGRO, normalizar, ROJO } from "../lib";
+import { AMARILLO, FUENTE, NEGRO, normalizar, VERDE } from "../lib";
 import type { Palabra } from "../schema";
 
 const MAX_POR_PAGINA = 3;
@@ -76,7 +76,7 @@ export const Subtitulos = ({
               style={{
                 display: "inline-block",
                 color: esClave ? "white" : activa ? AMARILLO : "white",
-                backgroundColor: esClave && dicha ? ROJO : "transparent",
+                backgroundColor: esClave && dicha ? VERDE : "transparent",
                 padding: esClave ? "0 14px" : 0,
                 borderRadius: 14,
                 opacity: dicha ? 1 : 0.55,
