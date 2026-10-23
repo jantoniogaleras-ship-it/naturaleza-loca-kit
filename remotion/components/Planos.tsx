@@ -34,6 +34,7 @@ const UnPlano = ({ plano, indice, duracion }: { plano: Plano; indice: number; du
     width: "100%",
     height: "100%",
     objectFit: "cover" as const,
+    objectPosition: `${plano.encuadreX ?? 50}% 50%`,
     transform: `translateX(${entradaX + x}%) scale(${escala * entradaZoom})`,
     filter: desenfoque > 0.5 ? `blur(${desenfoque}px)` : undefined,
   };

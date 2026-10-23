@@ -15,6 +15,8 @@ export type Plano = {
   fin: number;
   // Segundo del clip original desde el que empieza a reproducirse.
   desdeSegundo?: number;
+  // Clips horizontales: dónde está el animal de izquierda (0) a derecha (100), para recortar el vertical por ahí.
+  encuadreX?: number;
 };
 
 export type Overlay =
