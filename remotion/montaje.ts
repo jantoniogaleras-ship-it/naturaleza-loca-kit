@@ -11,6 +11,8 @@ const ANTES = 0.04;
 const DESPUES = 0.08;
 // El vídeo termina en cuanto acaba la última palabra (más este margen).
 const COLA = 0.35;
+// El reto «¿cuántas veces dije…?» sale cuando acaba la voz y se queda este tiempo en pantalla antes del corte.
+const TIEMPO_RETO = 2.2;
 // Hueco que se abre en la voz para el like. El inserto dura algo más, pero su final
 // es solo imagen («¡Dale like!»), así que la voz vuelve antes y no queda un silencio.
 const PAUSA_LIKE = 1.9;
@@ -73,7 +75,7 @@ export const montar = (original: ShortProps): Montaje => {
     trozos.push({ srcInicio, srcFin, inicio: cursor, desfase: cursor - srcInicio });
     cursor += srcFin - srcInicio;
   });
-  const duracion = cursor + COLA;
+  let duracion = cursor + COLA;
 
   // Lleva un instante del audio original a la línea de tiempo montada.
   const mapa = (t: number) => {
@@ -89,6 +91,9 @@ export const montar = (original: ShortProps): Montaje => {
     }
     return duracion;
   };
+  // Si el reto llega después de la última frase, el vídeo se alarga para que dé tiempo a leerlo.
+  const reto = original.overlays.find((o) => o.tipo === "reto");
+  if (reto) duracion = Math.max(duracion, mapa(reto.inicio) + TIEMPO_RETO);
   const r = (x: number) => Math.round(x * 1000) / 1000;
 
   const nuevasPalabras = palabras.map((w) => ({ ...w, inicio: r(mapa(w.inicio)), fin: r(mapa(w.fin)) }));
