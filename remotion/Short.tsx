@@ -51,13 +51,14 @@ export const Short = (original: ShortProps) => {
     return hablando ? base * 0.5 : base;
   };
 
-  // El like y el reto ocupan toda la pantalla: mientras están, no hay subtítulos.
-  const tapan = props.overlays.filter((o) => o.tipo === "like" || o.tipo === "reto");
-  const durante = (t: number) => tapan.some((o) => t >= o.inicio && t < finDeOverlay(o));
-
   // La portada dura lo que la pregunta del gancho (entre 1,5 y 3 s).
   const pregunta = palabras.find((w) => /\?$/.test(w.texto));
   const finPortada = Math.min(3, Math.max(1.5, (pregunta?.fin ?? 2) + 0.2));
+
+  // El like y el reto ocupan toda la pantalla: mientras están, no hay subtítulos. Tampoco con la portada:
+  // al principio solo un texto, el dato fuerte en grande, para que no compita con los subtítulos.
+  const tapan = props.overlays.filter((o) => o.tipo === "like" || o.tipo === "reto");
+  const durante = (t: number) => (Boolean(props.portada) && t < finPortada) || tapan.some((o) => t >= o.inicio && t < finDeOverlay(o));
 
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
